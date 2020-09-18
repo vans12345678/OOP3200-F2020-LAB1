@@ -6,7 +6,7 @@
  *			will be used to support an IT support tracking application to store information about
  *          client requests.
  *          
- * Modifications: N/A
+ *
  *
  * Created on September 18, 2020, 2:33 p.m.
  */
