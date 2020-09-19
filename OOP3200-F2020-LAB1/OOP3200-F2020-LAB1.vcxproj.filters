@@ -18,5 +18,13 @@
     <ClCompile Include="OOP3200-F2020-LAB1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\OneDrive - Durham College\OOP 3200\OOP3200-F2020-Lesson2\OOP3200-F2020-Lesson2\OOP3200-F2020-Lesson2\MyConsoleInput.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\OneDrive - Durham College\OOP 3200\OOP3200-F2020-Lesson2\OOP3200-F2020-Lesson2\OOP3200-F2020-Lesson2\MyconsoleInput.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

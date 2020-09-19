@@ -139,7 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\OneDrive - Durham College\OOP 3200\OOP3200-F2020-Lesson2\OOP3200-F2020-Lesson2\OOP3200-F2020-Lesson2\MyConsoleInput.cpp" />
     <ClCompile Include="OOP3200-F2020-LAB1.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\OneDrive - Durham College\OOP 3200\OOP3200-F2020-Lesson2\OOP3200-F2020-Lesson2\OOP3200-F2020-Lesson2\MyconsoleInput.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

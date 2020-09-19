@@ -24,63 +24,110 @@ using namespace std;
 
 class WorkTicket
 {
+
+private:
+
+	/* private data members for a work ticket */
+	int workTicketNumber;
+	int day;
+	int month;
+	int year;
+
+	string workClientID;
+	string workClientIssue;
+	
 public:
-	//initialize constructor
+	
+	/* initialize default constructor */
 	WorkTicket(int ticketNumber = 0, int ticketDay = 1, int ticketMonth = 1, int ticketYear = 2000, std::string id = "", std::string description = "")
 	{
-		SetTicketNumber(ticketNumber);
-		SetDate(ticketDay, ticketMonth, ticketYear);
+		SetWorkTicket(ticketNumber, ticketDay, ticketMonth, ticketYear, id, description);
 	}
-	/*Accessors (Getters)*/
-
 	
-	/*Show the whole work ticket (similar to toString)
-	*sets all attributes of WorkTicket as long as the parameters are valid. If
-	*one attribute isn't correct, none of the attributes will change.
-	*Returns true if no problems, otherwise false.
-	*/
-	string ShowWorkTicket() const;
+	/* Accessors */
 
-	/*Mutators (Setters)*/
-	void SetWorkTicket(int ticketNumber, int ticketDay, int ticketMonth, int ticketYear, std::string id, std::string description)
+	int getWorkTicketNumber() { return workTicketNumber; }
+	int getWorkTicketDateDay() { return day; }
+	int getWorkTicketDateMonth() { return month; }
+	int getWorkTicketDateYear() { return year; }
+	
+	string getClientID() { return workClientID; }
+	string getIssueDescription() { return workClientIssue; }
+	string ShowWorkTicket() const;//returns a string that contains ticket info
+	
+
+	/* Mutators */
+	
+	void SetWorkTicket(int ticketNumber, int ticketDay, int ticketMonth, int ticketYear, string id, string description)
 	{
 		SetDate(ticketDay, ticketMonth, ticketYear);
 		SetTicketNumber(ticketNumber);
 		SetId(id);
 		SetIssue(description);
 	}
+	
+	/*Once called, sets day,month and year for date*/
 	void SetDate(int dayInput, int monthInput, int yearInput)
 	{
 		day = dayInput;
 		month = monthInput;
 		year = yearInput;
 	}
-	void SetTicketNumber(int ticketInput) { workTicketNumber = ticketInput; }
-	void SetId(std::string idInput) { workClientID = idInput; }
-	void SetIssue(std::string issueInput) { workClientIssue = issueInput; }
 	
-	
-
-private:
-	
-	//private data members for a work ticket
-	int workTicketNumber;
-	int day;
-	int month;
-	int year;
-	//int workTicketDate[3] = {day, month, year}; //wrong format
-
-	std::string workClientID;
-	std::string workClientIssue;
-	
-
-	
+	/* Once called, sets ticket number, id and issue description */
+	void SetTicketNumber(int ticketNumberInput) { workTicketNumber = ticketNumberInput; }
+	void SetId(string idInput) { workClientID = idInput; }
+	void SetIssue(string issueInput) { workClientIssue = issueInput; }	
 };
+
 int main()
 {
-	WorkTicket ticket;
+	int inputTicketNumber;
+	int inputDay;
+	int inputMonth;
+	int inputYear;
+	
+	const int NUM_TICKETS = 3;
+	
+	string inputClientID;
+	string inputClientIssue;
+	
+	WorkTicket ticket [NUM_TICKETS];
 
-	cout << ticket.ShowWorkTicket();
+	cout << "You will be making " << NUM_TICKETS << " today." << endl;
+	//start for loop?
+	try
+	{
+		cout << "What's your ID:";
+		cin >> inputClientID;
+
+		cout << "\nWhat's your ticket number:";
+		inputTicketNumber = ConsoleInput::ReadInteger(1);
+		
+
+		cout << "\nWhat day is it today:";
+		inputDay = ConsoleInput::ReadInteger(1, 31);
+
+		cout << "\nWhat month is it:";
+		inputMonth = ConsoleInput::ReadInteger(1, 12);
+
+		cout << "\nWhat year is it:";
+		inputYear = ConsoleInput::ReadInteger(2000, 2099);
+
+		ticket[0].SetWorkTicket(inputTicketNumber, inputDay, inputMonth, inputYear, inputClientID,inputClientIssue);
+
+		cout << "Enter your work description:";
+		cin >> inputClientIssue;
+
+		cout << ticket[0].ShowWorkTicket();
+
+	}
+	catch (exception& ex)
+	{
+		cerr << ex.what() << "Ending the program." << endl;
+	}
+	
+
 }
 
 string WorkTicket::ShowWorkTicket() const
